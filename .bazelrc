@@ -1,0 +1,9 @@
+common --noenable_bzlmod
+
+build --features=-swift.objc_link_flag
+build --linkopt=-why_load
+build --announce_rc
+build --subcommands
+build --copt=-v
+build --swiftcopt=-v
+build --linkopt=-v
