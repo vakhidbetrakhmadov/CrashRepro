@@ -5,9 +5,9 @@ load("@rules_xcodeproj//xcodeproj:defs.bzl", "xcode_provisioning_profile")
 load("@build_bazel_rules_apple//apple:versioning.bzl", "apple_bundle_version")
 load("@rules_xcodeproj//xcodeproj:defs.bzl", "xcodeproj", "top_level_target")
 
-_BUNDLE_ID = "<INSERT_BUNDLE_ID>"
-_PROFILE_NAME = "<INSERT_PROFILE_NAME>"
-_TEAM_ID = "<INSERT_TEAM_ID>"
+_BUNDLE_ID = "restermans.com.CrashRepro"
+_PROFILE_NAME = "iOS Team Provisioning Profile: restermans.com.CrashRepro"
+_TEAM_ID = "YAK5CL5GTN"
 
 swift_library(
     name = "Polling_swift_library",
