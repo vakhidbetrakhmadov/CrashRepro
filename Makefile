@@ -1,5 +1,5 @@
 clean:
-	rm -fdr .bazel-xcodeproj/* .xcodebuild/*
+	rm -fdr .bazel-xcodeproj .xcodebuild
 	bazelisk clean
 
 bazel_run_debug: clean
@@ -9,9 +9,11 @@ bazel_run_debug_o_size: clean
 	bazelisk run --swiftcopt=-Osize //:CrashRepro
 
 bazel_generate_xcode_proj_debug: clean
+	mkdir .bazel-xcodeproj
 	bazelisk run //:CrashRepro_xcodeproj && xed .bazel-xcodeproj/CrashRepro.xcodeproj
 
 bazel_generate_xcode_proj_debug_o_size: clean
+	mkdir .bazel-xcodeproj
 	bazelisk run  --@rules_xcodeproj//xcodeproj:extra_common_flags='--swiftcopt=-Osize' //:CrashRepro_xcodeproj && xed .bazel-xcodeproj/CrashRepro.xcodeproj
 
 xcodebuild_run_debug_o_size: clean create_simulator
