@@ -10,5 +10,7 @@ class ViewController: UIViewController {
 
         let pollingServiceWrapper = PollingServiceWrapper(pollingService: somePollingService)
         print(pollingServiceWrapper)
+
+        view.backgroundColor = .red
     }
 }

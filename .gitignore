@@ -1,2 +1,4 @@
 bazel-*
-*.xcodeproj
+.bazel-xcodeproj/*
+xcuserdata
+.xcodebuild/*

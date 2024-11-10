@@ -5,9 +5,7 @@ load("@rules_xcodeproj//xcodeproj:defs.bzl", "xcode_provisioning_profile")
 load("@build_bazel_rules_apple//apple:versioning.bzl", "apple_bundle_version")
 load("@rules_xcodeproj//xcodeproj:defs.bzl", "xcodeproj", "top_level_target")
 
-_BUNDLE_ID = "restermans.com.CrashRepro"
-_PROFILE_NAME = "iOS Team Provisioning Profile: restermans.com.CrashRepro"
-_TEAM_ID = "YAK5CL5GTN"
+_DEVELOPMENT_TEAM = "YAK5CL5GTN"
 
 swift_library(
     name = "Polling_swift_library",
@@ -24,8 +22,8 @@ swift_library(
 
 local_provisioning_profile(
     name = "CrashRepro_local_provisioning_profile",
-    profile_name = _PROFILE_NAME,
-    team_id = _TEAM_ID,
+    profile_name = "iOS Team Provisioning Profile: com.restermans.CrashRepro",
+    team_id = _DEVELOPMENT_TEAM,
 )
 
 xcode_provisioning_profile(
@@ -43,7 +41,7 @@ ios_application(
     name = "CrashRepro",
     bundle_name = "CrashRepro",
     app_icons = glob(["Assets.xcassets/**"]),
-    bundle_id = _BUNDLE_ID,
+    bundle_id = "com.restermans.CrashRepro",
     families = ["iphone"],
     infoplists = ["CrashRepro/Info.plist"],
     minimum_os_version = "17.0",
@@ -57,7 +55,7 @@ ios_application(
 
 xcodeproj(
     name = "CrashRepro_xcodeproj",
-    install_directory = package_name() + "bazel-xcodeproj",
+    install_directory = package_name() + ".bazel-xcodeproj",
     project_name = "CrashRepro",
     top_level_targets = [
         top_level_target(
