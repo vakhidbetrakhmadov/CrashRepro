@@ -25,7 +25,7 @@ xcodebuild_run_release_o_size: clean create_simulator
 simctl_launch_app:
 	xcrun simctl list devices available | grep 'iPhone 15 Pro Max (CrashRepro)' | grep -q '(Booted)' || xcrun simctl boot 'iPhone 15 Pro Max (CrashRepro)'
 	xcrun simctl install 'iPhone 15 Pro Max (CrashRepro)' .xcodebuild/Applications/CrashRepro.app
-	xcrun simctl launch 'iPhone 15 Pro Max (CrashRepro)' com.restermans.CrashRepro
+	xcrun simctl launch --terminate-running-process 'iPhone 15 Pro Max (CrashRepro)' com.restermans.CrashRepro
 
 create_simulator:
 	xcrun simctl list devices available | grep -q 'iPhone 15 Pro Max (CrashRepro)' || xcrun simctl create 'iPhone 15 Pro Max (CrashRepro)' 'iPhone 15 Pro Max'

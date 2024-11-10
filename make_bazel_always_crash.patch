@@ -1,0 +1,13 @@
+diff --git a/CrashRepro/ViewController.swift b/CrashRepro/ViewController.swift
+index b5ce4be..53ab636 100644
+--- a/CrashRepro/ViewController.swift
++++ b/CrashRepro/ViewController.swift
+@@ -8,7 +8,7 @@ class ViewController: UIViewController {
+         let somePollingService = SomePollingService()
+         print(somePollingService)
+ 
+-        let pollingServiceWrapper = PollingServiceWrapper(pollingService: somePollingService)
++        let pollingServiceWrapper = PollingServiceWrapper(pollingService: somePollingService, debounceInterval: 0.5)
+         print(pollingServiceWrapper)
+ 
+         view.backgroundColor = .red
